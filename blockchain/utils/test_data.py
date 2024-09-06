@@ -1,0 +1,36 @@
+expense_data = [
+    "0x000000000000000000000000000000003879cdb0e5864b188f570ccea6972de0",
+    [
+        "0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c",0,0,100,False,False, True
+    ],
+    "0x000000000000000000000000000000003879cdb0e5864b188f570ccea6972de1",
+    [
+        "0x000000000000000000000000000000003879cdb0e5864b188f570ccea6972de2",
+        1622524800, False, True
+    ],
+    [
+        "0x8d28ffb47438a7c9441ac050e969aebda1463432f96dbc29b06e00cf4979017c",
+        "0x309947f8983420bf234dd4a2cb6916d6f2bce592abec8183f9b9905b015fd78e"
+    ],
+    [100, 100],
+    ["Expense for office supplies", "Expense for office supplies"],
+    [1, 0]
+]
+
+# Missing fields for transaction amounts and narration
+invalid_expense_data = [
+    "0x000000000000000000000000000000003879cdb0e5864b188f570ccea6972de0",
+    [
+        "0xCA35b7d915458EF540aDe6068dFe2F44E8fa733c",0,0,100,False,False, True
+    ],
+    "0x000000000000000000000000000000003879cdb0e5864b188f570ccea6972de1",
+    [
+        "0x000000000000000000000000000000003879cdb0e5864b188f570ccea6972de2",
+        1622524800, False, True
+    ],
+    [
+        "0x8d28ffb47438a7c9441ac050e969aebda1463432f96dbc29b06e00cf4979017c",
+        "0x309947f8983420bf234dd4a2cb6916d6f2bce592abec8183f9b9905b015fd78e"
+    ],
+    [100, 100]
+]

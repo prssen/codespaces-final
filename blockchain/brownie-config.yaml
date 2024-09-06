@@ -1,0 +1,15 @@
+# networks:
+#   ganache-local:
+#     gas_limit: 12000000
+#     cmd_settings:
+#       port: 8545
+#       evm_version: istanbul
+#       chain_id: 1337
+#       mnemonic: brownies
+
+compiler:
+  # solc:
+  #   version: 0.8.4
+  # evm_version: istanbul
+  solc:
+    viaIR: true

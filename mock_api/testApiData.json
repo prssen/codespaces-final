@@ -1,0 +1,165 @@
+{
+    "donations": [
+        {
+            "date": "01-01-2024",
+            "id": 7,
+            "amount": "200.00",
+            "donor": 172,
+            "parent_charity": "abc23"
+        }
+    ],
+    "accounting_login": {
+        "key": "d2c2e9f4a0c7f3e4e5b6c7d8e9f0a1b2c3d4e5f6",
+        "selected_charity": "None",
+        "has_charity": "false"
+    },
+    "accounting_register": {
+        "key": "04593b60478bc32f376102cfa9028ab879fc40ff",
+        "selected_charity": "None",
+        "has_charity": "false"
+    },
+    "appeals": [
+            {
+                "uuid": "6d3e06be-8862-465a-8928-cc0534ce8e48",
+                "title": "Harvest of Hope: Cultivating Food Security",
+                "subtitle": "Nourishing Families, One Seed at a Time",
+                "photo": "http://localhost:8000/media/6d3e06be-8862-465a-8928-cc0534ce8e48-0_T1sYKJD.jpeg",
+                "charity_name": null,
+                "avatar": "http://localhost:8000/media/6d3e06be-8862-465a-8928-cc0534ce8e48-1_TOLjfFE.jpeg",
+                "date_started": "2023-10-02",
+                "is_live": true
+            },
+            {
+                "uuid": "695d60f1-42c2-49a4-8522-a4ee49750bef",
+                "title": "Waves of Wellness: Access to Clean Water",
+                "subtitle": "Transforming Lives with Every Drop",
+                "photo": "http://localhost:8000/media/695d60f1-42c2-49a4-8522-a4ee49750bef-0_jyxw9xW.jpeg",
+                "charity_name": null,
+                "avatar": "http://localhost:8000/media/695d60f1-42c2-49a4-8522-a4ee49750bef-1_Ngrvo5V.jpeg",
+                "date_started": "2023-10-15",
+                "is_live": true
+            },
+            {
+                "uuid": "a4627845-d2ec-4123-ab7f-5ff30b9d9e61",
+                "title": "Shelter of Strength: Housing for All",
+                "subtitle": "Building Homes, Restoring Dignity",
+                "photo": "http://localhost:8000/media/a4627845-d2ec-4123-ab7f-5ff30b9d9e61-0_I4pvX0n.jpeg",
+                "charity_name": null,
+                "avatar": "http://localhost:8000/media/a4627845-d2ec-4123-ab7f-5ff30b9d9e61-1_CLoCUEG.jpeg",
+                "date_started": "2023-10-28",
+                "is_live": true
+            },
+            {
+                "uuid": "f8843155-0351-45f5-96f1-418d7a225e1f",
+                "title": "Voices of the Future: Empowering Youth Through Education",
+                "subtitle": "Unlocking Potential, Inspiring Change",
+                "photo": "http://localhost:8000/media/f8843155-0351-45f5-96f1-418d7a225e1f-0_GJdREA0.jpeg",
+                "charity_name": null,
+                "avatar": "http://localhost:8000/media/f8843155-0351-45f5-96f1-418d7a225e1f-1_ATBN2G6.jpeg",
+                "date_started": "2023-11-04",
+                "is_live": true
+            },
+            {
+                "uuid": "399568db-5910-45c3-973b-0098c97bcb0d",
+                "title": "Healing Hearts: Mental Health Support for All",
+                "subtitle": "Compassionate Care, Transformative Impact",
+                "photo": "http://localhost:8000/media/399568db-5910-45c3-973b-0098c97bcb0d-0_JoOfcnz.jpeg",
+                "charity_name": null,
+                "avatar": "http://localhost:8000/media/399568db-5910-45c3-973b-0098c97bcb0d-1_9giFdr9.jpeg",
+                "date_started": "2023-11-11",
+                "is_live": true
+            }
+    ],
+    "home": {
+        "appeal": {
+            "title": "Global Classrooms: International Education Exchange",
+            "subtitle": "Bridging Cultures Through Shared Learning",
+            "target_donations": "87496587.8700"
+        },
+        "expense_breakdown": [
+            {
+                "source_doc__expense__expense_type": "course",
+                "total": 325.68
+            }
+        ],
+        "total_activities": [
+            {
+                "name": "Husband town east stuff board.",
+                "total": 31556.0,
+                "unit_name": "Bag industry."
+            },
+            {
+                "name": "Middle list late green.",
+                "total": 27758.0,
+                "unit_name": "General gas."
+            },
+            {
+                "name": "Population language various several various.",
+                "total": 26688.0,
+                "unit_name": "Laugh want."
+            }
+        ],
+        "uuid": "d25ca200-7465-47a4-9863-c2f374c203fa",
+        "name": "State well half general couple sometimes.",
+        "start_date": "2008-10-08",
+        "end_date": "2008-12-11",
+        "target_donations": "87496587.8700",
+        "actual_donations": 330.0,
+        "transactions": [
+            {
+                "date": "2024-08-29",
+                "description": "Stripe donation",
+                "amount": "100.0000",
+                "dr_account": "Cash",
+                "cr_account": "Donation Income",
+                "fund": null,
+                "link": "/api/v1/transactions/19/"
+            },
+            {
+                "date": "2024-08-29",
+                "description": "Stripe donation",
+                "amount": "100.0000",
+                "dr_account": "Cash",
+                "cr_account": "Donation Income",
+                "fund": null,
+                "link": "/api/v1/transactions/20/"
+            },
+            {
+                "date": "2024-08-29",
+                "description": "Stripe donation",
+                "amount": "100.0000",
+                "dr_account": "Cash",
+                "cr_account": "Donation Income",
+                "fund": null,
+                "link": "/api/v1/transactions/21/"
+            },
+            {
+                "date": "2024-08-29",
+                "description": "Stripe donation",
+                "amount": "10.0000",
+                "dr_account": "Cash",
+                "cr_account": "Donation Income",
+                "fund": null,
+                "link": "/api/v1/transactions/22/"
+            },
+            {
+                "date": "2024-08-29",
+                "description": "Stripe donation",
+                "amount": "10.0000",
+                "dr_account": "Cash",
+                "cr_account": "Donation Income",
+                "fund": null,
+                "link": "/api/v1/transactions/23/"
+            },
+            {
+                "date": "2024-08-29",
+                "description": "More food see approach nor school. Tree major give interview.\nAway month question evidence do then. Cold treatment question clearly.",
+                "amount": "325.6800",
+                "dr_account": "Under hotel.",
+                "cr_account": "Test.",
+                "fund": null,
+                "link": "/api/v1/transactions/26/"
+            }
+        ]
+    }
+}

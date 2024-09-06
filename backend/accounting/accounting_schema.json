@@ -1,0 +1,22 @@
+{
+    "line_items": [
+        {
+            "parent_charity": "84a7f76c-2fde-4853-8147-d4a7e415525c",
+            "dr_account": "materials",
+            "cr_account": "bank - cash",
+            "amount": 12345,
+            "description": "materials expenses",
+            "project": "4fe96585-13c1-4bc5-b5bf-a12a4909c5d9",
+            "fund": "34b92a33-03b2-4823-b584-43de514ec116"
+        }
+    ]
+}
+
+{
+    "parent_charity": "84a7f76c-2fde-4853-8147-d4a7e415525c",
+    "dr_account": "materials",
+    "cr_account": "bank - cash",
+    "amount": 12345,
+    "description": "materials expenses",
+    "fund": "34b92a33-03b2-4823-b584-43de514ec116"
+}
