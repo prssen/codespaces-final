@@ -1,0 +1,7 @@
+# Dependencies
+frontend/node_modules/
+mock_api/node_modules/
+backend/final-env/
+
+# Assets
+backend/media
