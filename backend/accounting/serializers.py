@@ -12,7 +12,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from accounting.models import *  # TODO: change to named imports
 from accounting import models as acc_models  # TODO: change models to these
 
-from accounting.blockchain_provider import blockchain_provider
+# from accounting.blockchain_provider import blockchain_provider
 from accounting.models import Profile
 from accounting.mixins import DynamicFieldsMixin
 from accounting.exceptions import NoTenantError, InvalidDoubleEntry

@@ -299,7 +299,8 @@ LOGGING = {
 
 # Blockchain configuration settings - update as needed
 CONTRACT_ABI_DIR = BASE_DIR.parent / \
-    "final-blockchain/Ethereum/truffle/build/contracts"
+    "blockchain/smart_contracts/build/contracts"
+    # "final-blockchain/Ethereum/truffle/build/contracts"
 
 # Celery settings
 # result_ackend_transport_options = {

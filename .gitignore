@@ -5,3 +5,8 @@ backend/final-env/
 
 # Assets
 backend/media
+
+# Database, Kafka etc
+services/
+blockchain/quorum-test-network/
+

@@ -23,7 +23,7 @@ from collections import defaultdict
 from confluent_kafka import Producer
 import socket
 
-conf = {'bootstrap.servers': 'localhost:9092',
+conf = {'bootstrap.servers': 'localhost:29092',
         'client.id': socket.gethostname()}
 
 producer = Producer(conf)
@@ -31,23 +31,27 @@ producer = Producer(conf)
 
 class BrownieBlockchainProvider:
     contracts = None
-    address_path = "/Users/senaypetros/Documents/UoL/Final Project/Deliverables/Final_Code/backend/accounting/blockchain_service/contract_addresses.txt"
-    charity_address_path = "/Users/senaypetros/Documents/UoL/Final Project/Deliverables/Final_Code/backend/accounting/blockchain_service/charity_addresses.txt"
+    # address_path = "/Users/senaypetros/Documents/UoL/Final Project/Deliverables/Final_Code/backend/accounting/blockchain_service/contract_addresses.txt"
+    address_path = "./blockchain_service/contract_addresses.txt"
+    # charity_address_path = "/Users/senaypetros/Documents/UoL/Final Project/Deliverables/Final_Code/backend/accounting/blockchain_service/charity_addresses.txt"
+    charity_address_path = "./blockchain_service/charity_addresses.txt"
     # Tracks the block up to which we have received events (reword)
     block_counter = 0
 
     def __init__(self):
-        project_path = '/Users/senaypetros/Documents/UoL/Final Project/Deliverables/Final_Code/final-blockchain/Ethereum/brownie'
+        # project_path = '/Users/senaypetros/Documents/UoL/Final Project/Deliverables/Final_Code/final-blockchain/Ethereum/brownie'
+        # project_path = '../../blockchain/brownie'
+        project_path = '/workspaces/codespaces-blank/blockchain/brownie'
         self.contracts = brownie.project.load(
             project_path, raise_if_loaded=False)
         # self.contracts = brownie.project.load(
         #     '/Users/senaypetros/Documents/UoL/Final Project/Deliverables/Final_Code/final-blockchain/Ethereum/brownie')
         self.contracts.load_config()
 
-        # Instead of spinninng up new network each time this runs,
+        # Instead of spinning up new network each time this runs,
         # # Connect to running network
-        if network.show_active() != 'development':
-            network.connect('development')
+        if network.show_active() != 'besulocal':
+            network.connect('besulocal')
 
         # Start IPFS client
         self.ipfs_client = Client('127.0.0.1', 5001)

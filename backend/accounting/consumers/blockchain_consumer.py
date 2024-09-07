@@ -7,7 +7,7 @@ import sys
 from confluent_kafka import Consumer
 from confluent_kafka.error import KafkaError, KafkaException
 
-conf = {'bootstrap.servers': 'localhost:9092',
+conf = {'bootstrap.servers': 'localhost:29092',
         'group.id': 'foo',
         'auto.offset.reset': 'smallest'}
 

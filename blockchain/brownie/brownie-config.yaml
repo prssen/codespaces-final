@@ -6,7 +6,12 @@
 #       evm_version: istanbul
 #       chain_id: 1337
 #       mnemonic: brownies
-
+networks:
+  Ethereum:
+    chainid: 1337
+    id: besulocal
+    host: http://localhost:8545
+    # block_time: 5
 compiler:
   # solc:
   #   version: 0.8.4
