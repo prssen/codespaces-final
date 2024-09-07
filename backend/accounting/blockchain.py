@@ -23,7 +23,7 @@ from collections import defaultdict
 from confluent_kafka import Producer
 import socket
 
-conf = {'bootstrap.servers': 'localhost:29092',
+conf = {'bootstrap.servers': 'localhost:9092',
         'client.id': socket.gethostname()}
 
 producer = Producer(conf)
@@ -41,7 +41,8 @@ class BrownieBlockchainProvider:
     def __init__(self):
         # project_path = '/Users/senaypetros/Documents/UoL/Final Project/Deliverables/Final_Code/final-blockchain/Ethereum/brownie'
         # project_path = '../../blockchain/brownie'
-        project_path = '/workspaces/codespaces-blank/blockchain/brownie'
+        # project_path = '/workspaces/codespaces-blank/blockchain/brownie'
+        project_path = '/home/ubuntu/codespaces-final/blockchain/brownie'
         self.contracts = brownie.project.load(
             project_path, raise_if_loaded=False)
         # self.contracts = brownie.project.load(

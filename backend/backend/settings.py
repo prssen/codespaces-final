@@ -146,9 +146,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'finalPrototype',
-        'USER': 'root',
-        'PASSWORD': 'Football89',
-        'HOST': '127.0.0.1',
+        'USER': 'admin',
+        'PASSWORD': 'rootroot',
+        'HOST': 'backend-database.c5s20syww7ye.eu-north-1.rds.amazonaws.com',
         'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"
@@ -309,3 +309,13 @@ CONTRACT_ABI_DIR = BASE_DIR.parent / \
 # Credit: code from GitHub Copilot
 CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'redis://localhost:6379/0'
+
+AWS_ACCESS_KEY_ID = 'AKIA5AJAGFRJ5UG3AO4W'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'tripleentrystorage'
+AWS_S3_SIGNATURE_NAME = ''
+AWS_S3_REGION_NAME = 'eu-north-1'
+AWS_S3_FILE_OVERWRITE = False
+AWS_DEFAULT_ACL = None
+AWS_S3_VERITY = True
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'

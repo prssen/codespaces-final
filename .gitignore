@@ -2,6 +2,7 @@
 frontend/node_modules/
 mock_api/node_modules/
 backend/final-env/
+backend/accounting/__pycache__
 
 # Assets
 backend/media
