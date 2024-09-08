@@ -1,3 +1,4 @@
+"use client"
 import React, { useState } from "react";
 import {
     Box,
@@ -8,7 +9,7 @@ import {
 } from "@mui/material";
 import CompanyForm from "./CompanyForm";
 // import FormInput from "../CreateTransactionModal/FormInput";
-import FormInput from "@/lib/components/form-controls/FormInput";
+import FormInput from "@/components/form-controls/FormInput";
 import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 // import { arr } from "../../utils";
 import { arr } from "@/lib/utils/utils";
@@ -80,6 +81,11 @@ const FirstStep = ({ values, handleValues, errors }) => {
                         onChange={handleValues}
                         errors={errors}
                     />
+                    {/* {CompanyForm.AddressFields({
+                        values: values,
+                        onChange: handleValues,
+                        errors: errors
+                    })} */}
                 </Grid>
             </FormGroup>
         </>

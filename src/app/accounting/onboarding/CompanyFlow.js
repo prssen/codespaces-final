@@ -132,8 +132,11 @@ const CompanyFlow = ({
         // setValues({ ...values, [e.target.name]: e.target.value });
 
     const handleValues = useCallback((e) => {
-        setValues({ ...values, [e.target.name]: e.target.value })
-    }, [values]);
+        // setValues({ ...values, [e.target.name]: e.target.value })
+        setValues(prevValues => 
+            ({ ...prevValues, [e.target.name]: e.target.value })
+        )
+    }, [setValues]);
     // Placeholder for form validation errors
     const errors = { fieldValues: null };
 

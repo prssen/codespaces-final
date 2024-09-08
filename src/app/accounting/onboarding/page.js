@@ -1,6 +1,12 @@
 import { OnboardingDialog } from "./OnboardingDialog";
 import CompanyFlow from "./CompanyFlow";
 
+// Must be a server action to be passed to a client component
+const noop = async () => {
+    "use server"
+    return;
+}
+
 const OnboardingPage = () => {
     return (
         <div
@@ -18,7 +24,7 @@ const OnboardingPage = () => {
             {/* Dialog is always open on this page */}
             <OnboardingDialog
                 open={true}
-                handleClose={() => {}}
+                handleClose={noop}
                 // startTransition={startTransition}
                 // ChildComponent={(props) => <CompanyFlow {...props} />}
                 ChildComponent={CompanyFlow}

@@ -23,7 +23,7 @@ const Intro = () => {
                 component="img"
                 sx={{ height: 200, width: 200 }}
                 alt="Accounting illustration"
-                src={AccountingIllustration}
+                src={AccountingIllustration.src}
             />
             <Typography variant="h5" fontWeight="bold">
                 Welcome to AccountTrack!

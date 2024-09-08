@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 // import FormInput from "../CreateTransactionModal/FormInput";
 import FormInput from "@/components/form-controls/FormInput";
