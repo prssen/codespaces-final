@@ -281,7 +281,11 @@ export const AddressFields = ({ values, errors, onChange }) => {
                     value={values.address.country.name}
                     onChange={handleChange}
                 /> */}
-                <Fields.Country />
+                <Fields.Country 
+                    error={errors.fieldErrors?.address?.country}
+                    value={values.address.country}
+                    onChange={onChange}
+                />
             </Grid>
         </>
     );
