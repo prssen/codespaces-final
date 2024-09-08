@@ -14,7 +14,8 @@ const Address1 = ({ error, value, onChange, type }) => (
         name={`address.address1`}
         label={`${toTitleCase(type)} Address`}
         helperText={
-            arr(errors.fieldErrors?.address?.address1).join(`; `) ||
+            // arr(errors.fieldErrors?.address?.address1).join(`; `) ||
+            arr(error).join(`; `) ||
             `Enter the ${toTitleCase(type)}'s address`
         }
         // value={values.address.address1}
@@ -31,7 +32,8 @@ const Address2 = ({ error, value, updateFormValue, type }) => (
         id={`${type}-address-2`}
         name="address.address2"
         label={`${toTitleCase(type)} Address - Line 2`}
-        helperText={arr(errors.fieldErrors?.address?.address2).join(`; `)}
+        // helperText={arr(errors.fieldErrors?.address?.address2).join(`; `)}
+        helperText={arr(error).join(`; `)}
         // value={values.address.address2}
         value={value}
         // onChange={updateFormValues}
@@ -63,7 +65,8 @@ const Postcode = ({ error, value, onChange, type }) => (
         id={`${type}-postal-code`}
         name="address.postal_code"
         label={`${toTitleCase(type)} Postcode`}
-        helperText={arr(errors.fieldErrors?.address?.postal_code).join(
+        // helperText={arr(errors.fieldErrors?.address?.postal_code).join(
+        helperText={arr(error).join(
             `; `
         )}
         // value={values.address.postal_code}

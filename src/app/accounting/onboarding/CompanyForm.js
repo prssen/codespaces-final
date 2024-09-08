@@ -7,7 +7,10 @@ import LocalPhoneOutlinedIcon from "@mui/icons-material/LocalPhoneOutlined";
 // import CountrySelect from "../Components/CountrySelect";
 // import { ReplayCircleFilled } from "@mui/icons-material";
 // import getAddressFields from "../Components/AddressFields";
-import getAddressFields from "./components/AddressFields";
+
+// import getAddressFields from "./components/AddressFields";
+import * as Fields from "./components/AddressFields";
+
 // import { arr, toTitleCase } from "../../utils";
 import { arr, toTitleCase} from "@/lib/utils/utils";
 
@@ -128,17 +131,21 @@ const EmailField = ({ contactType, values, errors, handleChange }) => {
 export const AddressFields = ({ values, errors, onChange }) => {
     // console.log("Values read are: ", values);
 
-    const Fields = getAddressFields({
-        values,
-        errors,
-        updateFormValues: onChange,
-        type: "Charity",
-    });
+    // const Fields = getAddressFields({
+    //     values,
+    //     errors,
+    //     updateFormValues: onChange,
+    //     type: "Charity",
+    // });
 
     return (
         <>
             <Grid item xs={12}>
-                <Fields.Address1 />
+                <Fields.Address1 
+                    error={errors.fieldErrors?.address?.address1}
+                    value={values.address.address1}
+                    onChange={onChange}
+                />
                 {/* <FormInput
                     error={errors?.fieldErrors?.address?.address1}
                     id="charity-address-1"
@@ -153,7 +160,11 @@ export const AddressFields = ({ values, errors, onChange }) => {
                 /> */}
             </Grid>
             <Grid item xs={12}>
-                <Fields.Address2 />
+                <Fields.Address2 
+                    error={errors.fieldErrors?.address?.address2}
+                    value={values.address.address2}
+                    onChange={onChange}
+                />
                 {/* <FormInput
                     error={errors.fieldErrors?.address?.address2}
                     id="charity-address-2"
@@ -167,7 +178,11 @@ export const AddressFields = ({ values, errors, onChange }) => {
                 /> */}
             </Grid>
             <Grid item xs={12}>
-                <Fields.Address3 />
+                <Fields.Address3 
+                    error={errors.fieldErrors?.address?.address3}
+                    value={values.address.address3}
+                    onChange={onChange}
+                />
                 {/* <FormInput
                     error={errors.fieldErrors?.address?.address3}
                     id="charity-address-3"
@@ -181,7 +196,11 @@ export const AddressFields = ({ values, errors, onChange }) => {
                 /> */}
             </Grid>
             <Grid item xs={6}>
-                <Fields.Postcode />
+                <Fields.Postcode 
+                    error={errors.fieldErrors?.address?.postal_code}
+                    value={values.address.postal_code}
+                    onChange={onChange}
+                />
                 {/* <FormInput
                     error={errors.fieldErrors?.address?.postal_code}
                     id="charity-postal-code"
@@ -195,7 +214,11 @@ export const AddressFields = ({ values, errors, onChange }) => {
                 /> */}
             </Grid>
             <Grid item xs={6}>
-                <Fields.District />
+                <Fields.District 
+                    error={errors.fieldErrors?.address?.district?.name}
+                    value={values.address.district.name}
+                    onChange={onChange}
+                />
                 {/* <FormInput
                     error={errors.fieldErrors?.address?.district?.name}
                     id="charity-postal-code"
@@ -209,7 +232,11 @@ export const AddressFields = ({ values, errors, onChange }) => {
                 /> */}
             </Grid>
             <Grid item xs={4}>
-                <Fields.City />
+                <Fields.City 
+                    error={errors.fieldErrors?.address?.city?.name}
+                    value={values.address.city.name}
+                    onChange={onChange}
+                />
                 {/* <FormInput
                     error={errors.fieldErrors?.address?.city?.name}
                     id="charity-city"
@@ -234,7 +261,11 @@ export const AddressFields = ({ values, errors, onChange }) => {
                     value={values.address.region.name}
                     onChange={handleChange}
                 /> */}
-                <Fields.Region />
+                <Fields.Region 
+                    error={errors.fieldErrors?.address?.region?.name}
+                    value={values.address.region.name}
+                    onChange={onChange}
+                />
             </Grid>
             <Grid item xs={4}>
                 {/* TODO: debug this */}
