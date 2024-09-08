@@ -25,7 +25,7 @@ const Address1 = ({ error, value, onChange, type }) => (
     />
 );
 
-const Address2 = ({ error, value, updateFormValue, type }) => (
+const Address2 = ({ error, value, onChange, type }) => (
     <FormInput
         // error={errors.fieldErrors?.address?.address2}
         error={error}

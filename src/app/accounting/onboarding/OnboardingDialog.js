@@ -258,7 +258,9 @@ export const OnboardingDialog = ({
     const mutation = useCreateCharity(successCallback);
 
     const handleForm = (e, _errors) => {
-        if (!_.isEmpty(_errors.fieldErrors)) {
+        // if (!_.isEmpty(_errors.fieldErrors)) {
+        if (!isEmpty(_errors.fieldErrors)) {
+            console.log('Cannot submit: field errors', _errors.fieldErrors);
             setAlertOpen(true);
         } else {
             const formData = serialize(values);
@@ -455,8 +457,10 @@ export const OnboardingDialog = ({
                         <Box>
                             <Button
                                 type="submit"
-                                variant={isErrors() ? "outlined" : "contained"}
-                                color={isErrors() ? "error" : "primary"}
+                                // variant={isErrors() ? "outlined" : "contained"}
+                                // color={isErrors() ? "error" : "primary"}
+                                variant="contained"
+                                color="primary"
                                 // disabled={isErrors() && !isIntro}
                                 disabled={!isEmpty(errors) && !isIntro}
                                 endIcon={<Send />}
