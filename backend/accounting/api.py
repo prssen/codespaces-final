@@ -1542,8 +1542,10 @@ class NotificationViewSet(viewsets.ModelViewSet):
     lookup_field = 'uuid'
 
     def get_queryset(self):
-
-        return acc_models.Notification.objects.filter(receiver=get_current_charity(self).charity)
+        # Get all notifications to the current user's charity
+        receiver = getattr(get_current_charity(self), 'charity', None)
+        # return acc_models.Notification.objects.filter(receiver=get_current_charity(self).charity)
+        return acc_models.Notification.objects.filter(receiver=receiver)
         # return acc_models.Notification.objects.all()
 
 

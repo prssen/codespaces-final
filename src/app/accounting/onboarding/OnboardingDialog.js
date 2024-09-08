@@ -192,6 +192,9 @@ export const OnboardingDialog = ({
             // setStepCompleted({ ...stepCompleted, [activeStep]: true });
             setStepCompleted(updatedSteps);
         }
+        else {
+            console.log('Errors still present: ',errors);
+        }
         if (
             Object.entries(updatedSteps).filter((item) => item[1] === true)
                 .length === steps.length

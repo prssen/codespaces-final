@@ -31,6 +31,7 @@ producer = Producer(conf)
 
 class BrownieBlockchainProvider:
     contracts = None
+    accounts = None
     # address_path = "/Users/senaypetros/Documents/UoL/Final Project/Deliverables/Final_Code/backend/accounting/blockchain_service/contract_addresses.txt"
     address_path = "./blockchain_service/contract_addresses.txt"
     # charity_address_path = "/Users/senaypetros/Documents/UoL/Final Project/Deliverables/Final_Code/backend/accounting/blockchain_service/charity_addresses.txt"
@@ -45,6 +46,7 @@ class BrownieBlockchainProvider:
         project_path = '/home/ubuntu/codespaces-final/blockchain/brownie'
         self.contracts = brownie.project.load(
             project_path, raise_if_loaded=False)
+        self.load_accounts('/home/ubuntu/codespaces-final/blockchain/quorum-test-network/config/besu/QBFTgenesis.json')
         # self.contracts = brownie.project.load(
         #     '/Users/senaypetros/Documents/UoL/Final Project/Deliverables/Final_Code/final-blockchain/Ethereum/brownie')
         self.contracts.load_config()
@@ -80,16 +82,39 @@ class BrownieBlockchainProvider:
         return result
 
 
+    def load_accounts(self, genesis_file_path):
+        """Load starter accounts from genesis file of Besu blockchain"""
+
+        with open(genesis_file_path) as f:
+            file = json.load(f)
+            chain_accounts = file['alloc']
+            account_addresses = []
+            for account in chain_accounts:
+                if 'privateKey' in chain_accounts[account]:
+                    # acc = brownie.accounts.add(chain_accounts[account]["privateKey"])
+                    
+                    # account_addresses.append(acc.address)
+                    account_addresses.append(chain_accounts[account]['privateKey'])
+                    
+                    # print('Found account: ', account)
+                self.accounts = account_addresses
+            print('Available accounts: ', account_addresses)
+            # print(brownie.accounts[0], brownie.accounts[1], brownie.accounts[2])
+
+
     def create_account(self, keystore_path=None):
         """Create a new account on the blockchain and store its public and private keys securely."""
 
         new_account = brownie.accounts.add()
-        # Add some Ether from the pre-populated Ganache accounts to enable transactions
+        print('Available brownie accounts: ')
+        print([acc for acc in brownie.accounts])
+        # Add some Ether from the pre-populated Besu accounts to enable transactions
         # brownie.accounts[random.randint(0, 9)].transfer(new_account, "10 ether")
-        brownie.accounts[secrets.choice(range(0, 9))].transfer(new_account, "10 ether")
+        brownie.accounts.at(secrets.choice(self.accounts)).transfer(new_account, "10 ether")
         if keystore_path:
             new_account.save(keystore_path)
         return new_account.address
+
 
     def create_charity(self, instance):
         """Deploy new charity smart contract to the blockchain"""
@@ -175,7 +200,7 @@ class BrownieBlockchainProvider:
             blockchain_uuid, {'from': brownie.accounts[0]})
         return response        
 
-    
+
     def create_indicator(self, charity, indicator):
         """Create new indicator for project"""
         charity_uuid = str(charity.uuid)
