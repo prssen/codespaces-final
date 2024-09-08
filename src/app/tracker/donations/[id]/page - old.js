@@ -6,6 +6,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import Image from 'next/image';
 
 import { styled } from "@mui/material/styles";
 import LinearProgress, {
@@ -205,11 +206,23 @@ const TrackingPage = () => {
                                     >
                                         Places reached
                                     </Typography>
-                                    <img
+                                    {/* <img
                                         src={mapPhoto}
                                         style={{
                                             width: "98%",
                                             borderRadius: 5,
+                                        }}
+                                        alt="impact map"
+                                    /> */}
+                                    <Image
+                                        src={mapPhoto.src}
+                                        width={0}
+                                        height={0}
+                                        sizes="100vw"
+                                        style={{
+                                            width: "98%",
+                                            borderRadius: 5,
+                                            height: 'auto'
                                         }}
                                         alt="impact map"
                                     />

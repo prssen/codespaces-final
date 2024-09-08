@@ -48,17 +48,17 @@ const BasicTable = ({
                 <TableHead>
                     <TableRow>
                         {collapsible && <TableCell />}
-                        {headers.map((header) => (
-                            <TableCell align={header.alignRight && "right"}>
+                        {headers.map((header, index) => (
+                            <TableCell align={header.alignRight && "right"} key={index}>
                                 {header.label || header.name}
                             </TableCell>
-                        ))}
+                    ))}
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {data.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                          .map((row, index) => (
-                        <>
+                        <React.Fragment key={index}>
                             <TableRow
                                 onClick={() => setClicked(!clicked)}
                                 sx={
@@ -74,8 +74,9 @@ const BasicTable = ({
                                         {clicked && <KeyboardArrowDownIcon />}
                                     </TableCell>
                                 )}
-                                {headers.map((header) => (
+                                {headers.map((header, j) => (
                                     <TableCell
+                                        key={j}
                                         align={header.alignRight && "right"}
                                     >
                                         {row[header.name]}
@@ -86,7 +87,7 @@ const BasicTable = ({
                                 {/* TODO: Find out if this works when collapsible = undefined (an extra empty row may cause undefined behviour) */}
                                 {collapsible}
                             </TableRow>
-                        </>
+                        </React.Fragment>
                     ))}
                 </TableBody>
             </Table>

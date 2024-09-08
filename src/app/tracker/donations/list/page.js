@@ -40,6 +40,7 @@ import Link from "@/components/NextLink"
 
 const ListPaper = React.forwardRef((ref, { children, ...props }) => 
     <Paper variant="outlined" ref={ref} sx={{backgroundColor: 'grey'}} padding={2} {...props}>{children}</Paper>);
+ListPaper.displayName = 'ListPaper';
 
 const DonationHistory = () => {
     // let { gateway, network, contract } = React.useContext(BlockchainContext);
@@ -205,67 +206,68 @@ const DonationHistory = () => {
                                 mb: 3,
                             }}
                         /> */}
-                        {donations.map((donation) => (
+                        {donations.map((donation, index) => (
                             // <ButtonBase component={ListPaper} sx={{display: 'flex', width: '90%', flex: 1}} onClick={() => navigate(`/tracker/tracking/${donation.uuid}`)}>
                             <Link 
                                 href={`/tracker/donations/${donation.uuid}`}
                                 style={{textDecoration:'none'}}
+                                key={index}
                             >
-                            <Paper variant="outlined" padding={2}>
-                                    <Box
-                                        sx={{
-                                            display: "flex",
-                                            width: '100%',
-                                            flexDirection: "row",
-                                            justifyContent: "space-between",
-                                            alignItems: "center",
-                                            padding: 2,
-                                        }}
-                                    >
+                                <Paper variant="outlined" padding={2}>
                                         <Box
                                             sx={{
                                                 display: "flex",
+                                                width: '100%',
                                                 flexDirection: "row",
+                                                justifyContent: "space-between",
                                                 alignItems: "center",
+                                                padding: 2,
                                             }}
                                         >
-                                            {/* <Avatar
-                                                        alt="Remy Sharp"
-                                                        src="/static/images/avatar/1.jpg"
-                                                        sx={{ width: 24, height: 24, marginX: 2 }}
-                                                    /> */}
-                                            <Typography mx={2}>
-                                                {dayjs(donation.date).format('ll')}
-                                            </Typography>
-                                            <Box>
-                                                <Typography
-                                                    variant="h6"
-                                                    component="body2"
-                                                >
-                                                    {donation.appeal}
+                                            <Box
+                                                sx={{
+                                                    display: "flex",
+                                                    flexDirection: "row",
+                                                    alignItems: "center",
+                                                }}
+                                            >
+                                                {/* <Avatar
+                                                            alt="Remy Sharp"
+                                                            src="/static/images/avatar/1.jpg"
+                                                            sx={{ width: 24, height: 24, marginX: 2 }}
+                                                        /> */}
+                                                <Typography mx={2}>
+                                                    {dayjs(donation.date).format('ll')}
                                                 </Typography>
-                                                <Typography variant="subtitle2">
-                                                    {donation.charity_name}
+                                                <Box>
+                                                    <Typography
+                                                        variant="h6"
+                                                        component="body2"
+                                                    >
+                                                        {donation.appeal}
+                                                    </Typography>
+                                                    <Typography variant="subtitle2">
+                                                        {donation.charity_name}
+                                                    </Typography>
+                                                </Box>
+                                            </Box>
+                                            <Box
+                                                sx={{
+                                                    display: "flex",
+                                                    flexDirection: "row",
+                                                    alignItems: "center",
+                                                    gap: 2,
+                                                }}
+                                            >
+                                                <Typography variant="h5">
+                                                    £{formatCurrency(donation.amount)}
                                                 </Typography>
+                                                <Button variant="outlined">
+                                                    Receipt
+                                                </Button>
                                             </Box>
                                         </Box>
-                                        <Box
-                                            sx={{
-                                                display: "flex",
-                                                flexDirection: "row",
-                                                alignItems: "center",
-                                                gap: 2,
-                                            }}
-                                        >
-                                            <Typography variant="h5">
-                                                £{formatCurrency(donation.amount)}
-                                            </Typography>
-                                            <Button variant="outlined">
-                                                Receipt
-                                            </Button>
-                                        </Box>
-                                    </Box>
-                            </Paper>
+                                </Paper>
                             {/* </ButtonBase> */}
                             </Link>
                         ))}

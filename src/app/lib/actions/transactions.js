@@ -35,4 +35,4 @@ export async function getTransactionById(id) {
 }
 
 // Or is a class with functions better/possible?
-export { remainingTransactions };
+// export { remainingTransactions };

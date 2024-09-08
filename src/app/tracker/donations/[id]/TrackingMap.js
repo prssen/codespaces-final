@@ -136,6 +136,7 @@ const LeafletMap = ({ activities }) => {
                             icon={ICON}
                             position={[activity.location?.lat || 0, activity.location?.lon || 0]}
                             // icon={DefaultIcon}
+                            key={i}
                         >
                             {console.log('Activity ' + i + ' passed to map:', activity)}
                             {/* {console.log('Activity location: ', activity.location?.name || await getLocationName(activity.location))} */}

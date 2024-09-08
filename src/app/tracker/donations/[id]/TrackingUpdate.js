@@ -1,4 +1,5 @@
 import React from "react";
+import Image from 'next/image';
 
 import Timeline from '@mui/lab/Timeline';
 import TimelineItem from '@mui/lab/TimelineItem';
@@ -66,7 +67,7 @@ const TrackingUpdates = ({
             {...props?.timelineProps}
         >
         {data?.map((item, i) => (
-            <TimelineItem>
+            <TimelineItem key={i}>
                 <TimelineSeparator>
                     <TimelineDot />
                     <TimelineConnector />
@@ -100,7 +101,8 @@ const TrackingUpdates = ({
                                 }}
                             >
                                 {(item.image || selectedImage) &&                            
-                                    <img
+                                    // <img
+                                    <Image
                                         src={item.image || selectedImage || "https://placehold.co/100"}
                                         alt="random"
                                         width={100}

@@ -16,7 +16,8 @@ import  "./SearchResultsPage.css"
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 // import { useSearchParams, useNavigate, createSearchParams } from "react-router-dom";
-import { useSearchParams, useRouter } from "next/navigation";
+// import { useSearchParams, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useQueryStates, parseAsString, parseAsInteger } from "nuqs";
 import SearchResultsSection from "./SearchResultsSection";
 dayjs.extend(relativeTime);

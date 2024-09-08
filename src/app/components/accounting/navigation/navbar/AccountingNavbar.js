@@ -267,7 +267,7 @@ const AccountingNavbar = ({ toggleDrawer, searchBarOptions }) => {
                                         // ["Select charity", ...charities],
                                         ["Select charity", ...charityData],
                                         // ["Select charity", "charity A", "charity B", "charity C"], 
-                                        <Box sx={{display: 'flex', flexDirection: 'column', marginTop: -2}}>
+                                        <Box sx={{display: 'flex', flexDirection: 'column', marginTop: -2}} key={1}>
                                             <Divider
                                                 variant="middle"
                                                 sx={{

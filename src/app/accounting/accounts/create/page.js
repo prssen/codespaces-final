@@ -74,7 +74,7 @@ const CreateAccount = () => {
                             showHelper={true}
                         >
                             {Object.keys(accountTypes).map((name, index) => (
-                                <MenuItem value={accountTypes[name]}>
+                                <MenuItem value={accountTypes[name]} key={index}>
                                     {name}
                                 </MenuItem>
                             ))}

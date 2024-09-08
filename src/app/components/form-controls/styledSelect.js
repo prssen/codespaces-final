@@ -68,7 +68,7 @@ const StyledSelect = ({
                     <MenuItem value={20}>Twenty</MenuItem>
                     <MenuItem value={30}>Thirty</MenuItem> */}
                     {Object.keys(choices).map((name, index) => (
-                        <MenuItem value={choices[name]}>{name}</MenuItem>
+                        <MenuItem key={index} value={choices[name]}>{name}</MenuItem>
                     ))}
                 </Select>
                 <FormHelperText

@@ -1,3 +1,4 @@
+"use client"
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
@@ -5,7 +6,7 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
 
-import BasicTable from "@/components/basicTable";
+import BasicTable from "@/components/BasicTable";
 import BasicBreadcrumbs from "@/components/Breadcrumb";
 import Button from "@mui/material/Button";
 import AddIcon from "@mui/icons-material/Add";

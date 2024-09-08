@@ -64,6 +64,7 @@ const PopoverListItem = memo(({ option, index, handleClose }) => {
         </ListItem>
     );
 });
+PopoverListItem.displayName = 'PopoverListItem';
 
 // Adapted from https://mui.com/material-ui/react-popover/#basic-popover
 const StyledPopover = ({ options, optionsComponent, anchorEl, setAnchorEl, ...props }) => {
@@ -109,14 +110,14 @@ const StyledPopover = ({ options, optionsComponent, anchorEl, setAnchorEl, ...pr
             <List>
                 {optionsComponent ? optionsComponent() : options.map((option, i) => (
                     option.suboptions ?
-                        <>
+                        <React.Fragment key={i}>
                             <ListSubheader>{option.name}</ListSubheader>
                             {option.suboptions.map((suboption, j) => (
-                                <PopoverListItem option={suboption} index={j} handleClose={handleClose} />
+                                <PopoverListItem option={suboption} key={j} handleClose={handleClose} />
                             ))}
-                        </>
+                        </React.Fragment>
                         :
-                        <PopoverListItem option={option} index={i} handleClose={handleClose} />
+                        <PopoverListItem option={option} key={i} handleClose={handleClose} />
                 ))}
             </List>
         </Popover>

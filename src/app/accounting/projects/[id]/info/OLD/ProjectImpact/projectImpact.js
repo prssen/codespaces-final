@@ -8,7 +8,7 @@ const ProjectImpact = ({ data, ...props }) => {
             <Typography variant="h5">Project impact</Typography>
             <List sx={{ width: "100%", bgcolor: "background.paper" }}>
                 {data.map((item, index) => (
-                    <ProjectImpactItem {...item} />
+                    <ProjectImpactItem key={index} {...item} />
                 ))}
             </List>
         </Paper>

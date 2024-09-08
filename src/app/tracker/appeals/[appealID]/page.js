@@ -299,7 +299,7 @@ const AppealPage = () => {
                         >
                             <Grid item xs={12} container spacing={3}>
                                 {new Array(4).fill(0).map((item, index) => (
-                                    <Grid item xs={6} sm={4} md={3}>
+                                    <Grid item xs={6} sm={4} md={3} key={index}>
                                         <AppealCard key={index}/>
                                     </Grid>
                                 ))}

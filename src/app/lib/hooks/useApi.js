@@ -8,7 +8,7 @@ import { Context } from "@/lib/context/ContextProvider";
 import { LensTwoTone } from "@mui/icons-material";
 // axios.defaults.withCredentials = true;
 
-import { axios } from "@/lib/api/axiosInstance";
+import { axiosInstance as axios } from "@/lib/api/axiosInstance";
 
 const setCookie = (tokenValue) => {
     Cookies.set('token', tokenValue, { 

@@ -44,9 +44,10 @@ CSRF_USE_SESSIONS = True
 CORS_ALLOW_CREDENTIALS = True
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "http://localhost:3002",
     "http://localhost:8001"
 ]
-CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', "http://localhost:8001"]
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'http://localhost:3002', "http://localhost:8001"]
 # # For testing purposes
 SESSION_COOKIE_SECURE = False
 SESSION_COOKIE_HTTPONLY = False

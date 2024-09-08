@@ -51,16 +51,17 @@ const EditableTable = ({rows, rowSetter, headers, ...props}) => {
             <Table>
                 <TableHead>
                     <TableRow>
-                        {headers.map((header) => (
-                            <TableCell align={header.alignRight && 'right'}>{header.name}</TableCell>
+                        {headers.map((header, index) => (
+                            <TableCell key={index} align={header.alignRight && 'right'}>{header.name}</TableCell>
                         ))}
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {rows.map((row, index) => (
-                        <TableRow>
-                            {headers.map((header) => (
+                        <TableRow key={index}>
+                            {headers.map((header, j) => (
                                 <EditableCell
+                                    key={j}
                                     name={header}
                                     value={row[header]}
                                     changeHandler={onChange}

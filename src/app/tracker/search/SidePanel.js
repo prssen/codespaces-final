@@ -75,6 +75,7 @@ const SidePanel = ({ stateValues, setStateValues }) => {
                     }}
                     defaultExpanded
                     disableGutters={true}
+                    key={i}
                 >
                     <AccordionSummary
                         expandIcon={<ExpandMore />}

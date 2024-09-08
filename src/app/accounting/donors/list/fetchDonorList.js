@@ -145,8 +145,8 @@ const DonorList = () => {
 
     return (
         <>
-            {donors.map((donor) => (
-                <Paper variant="outlined" padding={2} sx={{ marginBottom: 2 }}>
+            {donors.map((donor, index) => (
+                <Paper variant="outlined" padding={2} sx={{ marginBottom: 2 }} key={index}>
                     <Box
                         sx={{
                             display: "flex",

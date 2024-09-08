@@ -10,11 +10,11 @@ import { getAddress } from "@/lib/utils/blockchain_utils";
 // export { default as charityAddresses } from "../../../../../backend/accounting/blockchain_service/charity_addresses.txt";
 export { default as charityAddresses } from "../../../../backend/accounting/blockchain_service/charity_addresses.txt";
 // export { default as Charity_abi } from "../../../../../final-blockchain/Ethereum/brownie/build/contracts/Charity.json";
-export { default as Charity_abi } from "../../../../blockchain/build/contracts/Charity.json";
+export { default as Charity_abi } from "../../../../blockchain/brownie/build/contracts/Charity.json";
 // export { default as Project_abi } from "../../../../../final-blockchain/Ethereum/brownie/build/contracts/Projects.json";
-export { default as Project_abi } from "../../../../blockchain/build/contracts/Projects.json";
+export { default as Project_abi } from "../../../../blockchain/brownie/build/contracts/Projects.json";
 // export { default as SourceDoc_abi } from "../../../../../final-blockchain/Ethereum/brownie/build/contracts/SourceDocuments.json";
-export { default as SourceDoc_abi } from "../../../../blockchain/build/contracts/SourceDocuments.json";
+export { default as SourceDoc_abi } from "../../../../blockchain/brownie/build/contracts/SourceDocuments.json";
 export { paymentMethods, expenseTypes } from '@/lib/utils/constants';
 import { getLocationName } from "@/lib/api/geolocation";
 

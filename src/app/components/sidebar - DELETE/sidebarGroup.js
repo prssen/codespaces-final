@@ -43,8 +43,9 @@ const SidebarGroup = ({
         <Collapse in={isActive && groupOpen}>
             {/* <List onClick={() => setGroupOpen(!groupOpen)}> */}
             <List>
-                {links.map((link) => (
+                {links.map((link, index) => (
                     <SidebarItem
+                        key={index}
                         text={link}
                         open={open}
                         textStyles={{ textIndent: 0 }}

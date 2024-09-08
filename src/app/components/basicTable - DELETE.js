@@ -31,8 +31,8 @@ const BasicTable = ({
                 <TableHead>
                     <TableRow>
                         {collapsible && <TableCell />}
-                        {headers.map((header) => (
-                            <TableCell align={header.alignRight && "right"}>
+                        {headers.map((header, index) => (
+                            <TableCell key={index} align={header.alignRight && "right"}>
                                 {header.name}
                             </TableCell>
                         ))}
@@ -40,7 +40,7 @@ const BasicTable = ({
                 </TableHead>
                 <TableBody>
                     {data.map((row, index) => (
-                        <>
+                        <React.Fragment key={index}>
                             <TableRow
                                 onclick={setClicked(!clicked)}
                                 sx={
@@ -56,8 +56,9 @@ const BasicTable = ({
                                         {clicked && <KeyboardArrowDownIcon />}
                                     </TableCell>
                                 )}
-                                {headers.map((header) => (
+                                {headers.map((header, j) => (
                                     <TableCell
+                                        key={j}
                                         align={header.alignRight && "right"}
                                     >
                                         {row[header.name]}
@@ -68,7 +69,7 @@ const BasicTable = ({
                                 {/* TODO: Find out if this works when collapsible = undefined (an extra empty row may cause undefined behviour) */}
                                 {collapsible}
                             </TableRow>
-                        </>
+                        </React.Fragment>
                     ))}
                 </TableBody>
             </Table>

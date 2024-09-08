@@ -1,6 +1,6 @@
 "use client"
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import { Container, Box, Typography, Button, Tabs, Tab, Popover } from '@mui/material';
 // import BasicBreadcrumbs from '../../Breadcrumb';
 import BasicBreadcrumbs from '@/components/Breadcrumb';
@@ -18,6 +18,7 @@ import { dateDiff, objectMean, objectSum } from '@/lib/utils/utils';
 
 import variables from "@/styles/themeVariables"
 import DataCard from '@/components/accounting/projects/DataCard';
+import Loading from '@/components/Loading';
 import ListHeader from './ListHeader';
 import ListSummaryCards from './ListSummaryCards';
 import ListSummaryChart from './ListSummaryChart';
@@ -174,52 +175,54 @@ const ListViewPage = ({
     // const id = open ? 'simple-popover' : undefined;
 
     return (
-        <Box 
-            sx={{
-                display: 'flex', 
-                flexDirection: 'column', 
-                // height: '100vh',
-                height: '100%',
-                // backgroundImage: url(/public/images/final_wave.svg)',
-            }}
-        >    
-            {/* {header} */}    
-            <ListHeader {...headerData} />
-            <Box sx={{
-                // backgroundColor: 'rgb(247, 250, 255)',
+        <Suspense fallback={<Loading open={true} />}>
+            <Box 
+                sx={{
+                    display: 'flex', 
+                    flexDirection: 'column', 
+                    // height: '100vh',
+                    height: '100%',
+                    // backgroundImage: url(/public/images/final_wave.svg)',
+                }}
+            >    
+                {/* {header} */}    
+                <ListHeader {...headerData} />
+                <Box sx={{
+                    // backgroundColor: 'rgb(247, 250, 255)',
 
-                // backgroundColor: 'rgb(246, 247, 249)',
-                flexGrow: 1,
-                py: 6,
-                // ml: -2,
-            }}>
-                <ListSummaryCards cardData={summaryCardData} />
-                <ListSummaryChart 
-                    chartData={summaryChartData}
-                />
-                <ListSummaryControls 
-                    rows={rows}
-                    setSelectedRows={setSelectedRows}
-                    sortModel={sortModel}
-                    setSortModel={setSortModel}
-                />
-                <Box 
-                    sx={{
-                        ml: 2, 
-                        // border: 2, 
-                        // borderColor: 'blue',
-                        padding: 3, 
-                        }}>
-                    {/* <Typography>{JSON.stringify(sortModel)}</Typography> */}
-                    <ListViewTable
-                        rows={selectedRows}
-                        columns={columns}
+                    // backgroundColor: 'rgb(246, 247, 249)',
+                    flexGrow: 1,
+                    py: 6,
+                    // ml: -2,
+                }}>
+                    <ListSummaryCards cardData={summaryCardData} />
+                    <ListSummaryChart 
+                        chartData={summaryChartData}
+                    />
+                    <ListSummaryControls 
+                        rows={rows}
+                        setSelectedRows={setSelectedRows}
                         sortModel={sortModel}
                         setSortModel={setSortModel}
                     />
+                    <Box 
+                        sx={{
+                            ml: 2, 
+                            // border: 2, 
+                            // borderColor: 'blue',
+                            padding: 3, 
+                            }}>
+                        {/* <Typography>{JSON.stringify(sortModel)}</Typography> */}
+                        {selectedRows && columns && sortModel && setSortModel && <ListViewTable
+                            rows={selectedRows}
+                            columns={columns}
+                            sortModel={sortModel}
+                            setSortModel={setSortModel}
+                        />}
+                    </Box>
                 </Box>
             </Box>
-        </Box>
+        </Suspense>
     );
 };
 

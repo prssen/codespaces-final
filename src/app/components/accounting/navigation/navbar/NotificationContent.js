@@ -103,7 +103,7 @@ const NotificationContent = ({ queryResponse }) => {
                     <ListItem key={index} alignItems="flex-start">
                         <ListItemAvatar>
                             <Avatar>
-                                <Image />
+                                <Image alt="Avatar of notification sender" />
                             </Avatar>
                         </ListItemAvatar>
                         <ListItemText

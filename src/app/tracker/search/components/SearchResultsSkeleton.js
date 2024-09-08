@@ -1,6 +1,7 @@
 import React from 'react'
 import Skeleton from '@mui/material/Skeleton'
 import Stack from '@mui/material/Stack'
+import Box from '@mui/material/Box'
 
 // Credit: adapted from https://www.youtube.com/watch?v=TuMWZxzIZxU
 const ListItemSkeleton = () => (

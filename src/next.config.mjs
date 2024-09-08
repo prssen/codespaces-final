@@ -21,6 +21,7 @@ const nextConfig = {
     //     secure: true,
     //     httpOnly: true,
     // },
+    // pageExtensions: ['page.tsx', 'page.ts', 'page.jsx', 'page.js'],
     // Add support for importing .txt files
     webpack: (config) => {
         config.module.rules = [
@@ -33,6 +34,9 @@ const nextConfig = {
         // Do not include 'vite' in final bundle (only needed
         // to import tranformWithEsBuild for tests)
         config.externals.push('vite');
+        config.watchOptions = {
+            ignored: /node_modules/,
+        };
         return config
     },
     experimental: {

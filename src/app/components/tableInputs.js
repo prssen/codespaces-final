@@ -46,10 +46,11 @@ const TableInputs = ({
                 <Grid container spacing={1}>
                     {headers.map((header, index) => (
                         // <Grid item xs={3}>
-                        <Grid item xs={normalised[index]}>
+                        <Grid item xs={normalised[index]} key={index}>
                             <Typography>{header}</Typography>
                             {new Array(numLines).fill(0).map((_, index) => (
                                 <TextField
+                                    key={index}    
                                     id={`${header}-${index}`}
                                     inputProps={{ "data-index": index }}
                                     name={header}

@@ -177,8 +177,8 @@ const LoginPage = () => {
             <Box sx={{
                 display: 'flex',
                 flex: 1, 
-                border: 1,
-                borderColor: 'white',
+                // border: 1,
+                // borderColor: 'white',
                 // height: '95%', 
                 // width: '95%',
                 top: '5%',
@@ -226,25 +226,26 @@ const LoginPage = () => {
             }}>
                 <div style={{
                     position: 'absolute',
-                    top: '-90px',
+                    // top: '-90px',
                     left: '-20px',
-                    width: '110%',
-                    border: '2px solid green',
+                    // width: '110%',
+                    // border: '2px solid green',
                     // width: 'auto',
-                    height: '145%',
+                    height: '100%',
                     // height: 'auto',
                     // border: 2,
                     // CSS to invert image for dark mode. Credit: AI response
                     filter: theme.palette.mode === 'dark' ? 'invert(1) brightness(0.8) contrast(1.2)' : 'none',
                     // backgroundColor: 'grey',
-                    backgroundImage: `url(${background.src})`,
                     // backgroundImage: `url('https://random.imagecdn.app/500/150')`,
-                    backgroundRepeat: "no-repeat",
                     // backgroundPositionY: "bottom",
                     // backgroundSize: "contain",
-                    backgroundSize: "cover",
-                    // Adjust to match size
                     //backgroundPosition: '50% 20%',
+                    // Adjust to match size
+                    
+                    // backgroundImage: `url(${background.src})`,
+                    // backgroundRepeat: "no-repeat",
+                    // backgroundSize: "cover",
                     borderColor: 'grey',
                     zIndex: -1000,
                 }} />

@@ -3,6 +3,8 @@ import { Box, Typography } from '@mui/material'
 import MonthlyExpenseChart from '../expenses/list/MonthlyExpenseChart'
 
 function ListSummaryChart({ chartData }) {
+  if (!chartData) return;
+  
   console.log('Chard data passed here: ', chartData);
   const { chartTitle, data, keys, indexBy } = chartData;
   const valueFormat = chartData?.valueFormat;

@@ -101,8 +101,8 @@ const DonationHistory = () => {
                         <Typography variant="h4" mb={3}>
                             Donation history
                         </Typography>
-                        {donations.map((donation) => (
-                            <Paper variant="outlined" padding={2}>
+                        {donations.map((donation, index) => (
+                            <Paper variant="outlined" padding={2} key={index}>
                                 <Box
                                     sx={{
                                         display: "flex",

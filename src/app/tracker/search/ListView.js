@@ -46,7 +46,7 @@ const ListView = ({ data: formatted }) => {
             <Suspense fallback={<SearchResultsSkeleton />}> 
                 {arrayNotEmpty && formatted.map((charity, index) => (
                     // <ButtonBase onClick={() => navigate(`/tracker/appeals/${charity.uuid}`)} sx={{width: '100%'}}>
-                    <ButtonBase onClick={() => router.push(`/tracker/appeals/${charity.uuid}`)} sx={{width: '100%'}}>
+                    <ButtonBase onClick={() => router.push(`/tracker/appeals/${charity.uuid}`)} sx={{width: '100%'}} key={index}>
                         <Box key={index} sx={{width: '100%', "&:hover": { boxShadow: 1, borderRadius: 3}}}>
                             <ListCard
                                 title={charity.title}
@@ -84,18 +84,25 @@ const ListView = ({ data: formatted }) => {
                     {/* <Typography sx={{border: 1, borderColor: 'green'}}>Testing</Typography> */}
                     <Box sx={{flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
                         <Box sx={{width: '90%', height: '90%'}}>
-                            <Image src={icon.src} width={0} height={0} sizes='100vw' style={{width: '100%', height: 'auto'}} />
+                            <Image 
+                                src={icon.src} 
+                                width={0} 
+                                height={0} 
+                                sizes='100vw' 
+                                style={{width: '100%', height: 'auto'}} 
+                                alt="No search results found image"
+                            />
                         </Box>
                     </Box>
                     <Box sx={{flex: 1, display: 'flex', flexDirection: 'column', alignItems: '-moz-initial'}}>
 
-                        <Typography variant="h6">No results found for <strong>"{searchParams.get('search')}"</strong></Typography>
+                        <Typography variant="h6">No results found for <strong>{`"${searchParams.get('search')}"`}</strong></Typography>
                         <Typography color="text.secondary" mt={1}>Some suggestions:</Typography>
                         {/* <List sx={{ listStyleType: 'disc', pl: 1 }} disablePadding> */}
                         <List disablePadding>
                             <ListItem sx={{ display: 'list-item', listStylePosition: 'inside', listStyleType: 'disc', pl: 0.2, pt: 0.8, py: 0.3, color: 'text.secondary' }}>Correct any typos</ListItem>
                             <ListItem sx={{ display: 'list-item', listStylePosition: 'inside', listStyleType: 'disc', pl: 0.2, py: 0.3, color: 'text.secondary'}}>Enter a more generic search term</ListItem>
-                            <ListItem sx={{ display: 'list-item', listStylePosition: 'inside', listStyleType: 'disc', pl: 0.2, py: 0.3, color: 'text.secondary' }}>If you still can't find what you're looking for, contact customer support</ListItem>
+                            <ListItem sx={{ display: 'list-item', listStylePosition: 'inside', listStyleType: 'disc', pl: 0.2, py: 0.3, color: 'text.secondary' }}>{`If you still can't find what you're looking for, contact customer support`}</ListItem>
                         </List>
                     </Box>
                 </Box>}

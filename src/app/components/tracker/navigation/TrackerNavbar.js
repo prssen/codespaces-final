@@ -170,11 +170,11 @@ function Navbar() {
             // options={!state.loggedIn ? [] : [
               // options={loggedIn && [
             options={!loggedIn ? [] : [
-              <Box sx={{display: 'flex', flexDirection: 'row', gap: 2}} onClick={onLogout}>
+              <Box sx={{display: 'flex', flexDirection: 'row', gap: 2}} onClick={onLogout} key={1}>
                 <Logout/>
                 Log out{" "}
               </Box>,
-              <Box sx={{display: 'flex', flexDirection: 'row', gap: 2}}>
+              <Box sx={{display: 'flex', flexDirection: 'row', gap: 2}} key={2}>
                 <Settings />
                 Settings{" "}
             </Box>,

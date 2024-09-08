@@ -1,5 +1,5 @@
 # Dependencies
-# frontend/node_modules/
+src/node_modules/
 mock_api/node_modules/
 backend/final-env/
 backend/accounting/__pycache__
@@ -10,4 +10,3 @@ backend/media
 # Database, Kafka etc
 services/
 blockchain/quorum-test-network/
-

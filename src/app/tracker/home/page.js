@@ -265,7 +265,7 @@ const CharityHomePage = (props) => {
                 (
                     <Grid container spacing={2}>
                         {appealCardData && appealCardData.slice(0,4).map(({ id, ...appeal }, index) => (
-                            <Grid item xs={3}>
+                            <Grid item xs={3} key={index}>
                                 <AppealCard
                                     {...appeal}
                                     cardStyles={{ height: "100%" }}
@@ -291,7 +291,7 @@ const CharityHomePage = (props) => {
                 (
                     <Grid container spacing={2}>
                         {charities.map(({ id, ...charity }, index) => (
-                            <Grid item xs={3}>
+                            <Grid item xs={3} key={index}>
                                 <AppealCard
                                     {...charity}
                                     cardStyles={{ height: "100%" }}
@@ -299,7 +299,7 @@ const CharityHomePage = (props) => {
                             </Grid>
                         ))}
                         {charities.map(({ id, ...charity }, index) => (
-                            <Grid item xs={3}>
+                            <Grid item xs={3} key={index}>
                                 <AppealCard
                                     {...charity}
                                     cardStyles={{ height: "100%" }}

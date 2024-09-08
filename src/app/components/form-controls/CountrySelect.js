@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 // import FormInput from "../CreateTransactionModal/FormInput";
 import FormInput from "@/components/form-controls/FormInput";
+import Image from 'next/image'
 
 // CREDIT: Code from https://mui.com/material-ui/react-autocomplete/#country-select
 export default function CountrySelect({

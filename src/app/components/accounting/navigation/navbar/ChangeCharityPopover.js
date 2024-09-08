@@ -120,7 +120,7 @@ const ChangeCharityPopover = ({ options, icon, iconSize, iconStyles, isTracker, 
                                 ))}
                             </>
                         : 
-                            <ListItem>
+                            <ListItem key={i}>
                                 <ListItemText>
                                     <Typography>{option}</Typography>
                                 </ListItemText>

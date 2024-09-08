@@ -20,7 +20,7 @@ function ListSummaryCards({ cardData }) {
             map over card data
         */}
             {/* <DataCard paper={{ sx: { width: '30%' } }} /> */}
-            {cardData.map(data => (
+            {cardData?.map(data => (
                 <DataCard 
                     key={data}
                     {...data}

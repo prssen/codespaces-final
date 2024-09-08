@@ -12,13 +12,14 @@ function handleClick(event) {
 
 // Credit: https://mui.com/material-ui/react-breadcrumbs/#basic-breadcrumbs
 export default function BasicBreadcrumbs({ breadcrumbs, sx, ...props }) {
+    // console.log('Breadcrumbs reached: ' + JSON.stringify(breadcrumbs));
     return (
         <Box role="presentation" onClick={handleClick} sx={sx}>
             <Breadcrumbs aria-label="breadcrumb" {...props}>
                 {/* {breadcrumbs.slice(0, -1).map((link) => ( */}
-                {breadcrumbs.slice(0, -1).map((crumb) => (
+                {breadcrumbs.slice(0, -1).map((crumb, i) => (
                     // <Link underline="hover" color="inherit" href="/">
-                    <Link underline="hover" color="inherit" href={crumb.url}>
+                    <Link underline="hover" color="inherit" href={crumb.url ?? ''} key={i}>
                         {/* {link} */}
                         {crumb.label}
                     </Link>

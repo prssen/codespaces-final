@@ -69,8 +69,8 @@ export default function AccountingLayout({ children, params }) {
                     display: "flex",
                     flexDirection: "row",
                     flex: 1,
-                    border: 1,
-                    borderColor: 'pink'
+                    // border: 1,
+                    // borderColor: 'pink'
                 }}>
 
                 {notLoginPage && <Box component="nav">
