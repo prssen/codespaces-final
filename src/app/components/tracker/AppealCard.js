@@ -54,6 +54,15 @@ const AppealCard = ({
     //     </Link>
     //     : children;
 
+    // Adjust domain name to the current host
+    let newUrl;
+    if (typeof window !== 'undefined' && window.location.origin) {
+        const urlString = new URL(url);
+        newUrl = `${window.location.origin}${urlString.pathname}${urlString.search}${urlString.hash}`;
+    } else {
+        newUrl = url;
+    }
+    
     return (
         <>
             <Card
@@ -74,7 +83,8 @@ const AppealCard = ({
                 <CardActionArea 
                     LinkComponent={Link}
                     // to={url}
-                    href={url}
+                    // href={url}
+                    href={newUrl}
                     sx={{
                         textDecoration: 'none',
                         color: 'inherit',

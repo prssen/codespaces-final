@@ -143,7 +143,7 @@ const CharityHomePage = (props) => {
         // });
     }
 
-    const { data: appeals, error, isLoading, isError } = useGetAppeals();
+    const { data: appeals, error, isLoading, isError } = useGetAppeals(null, null, { cacheTime: 60 * 5 * 1000});
 
     // Take the first photo to put on appeal card
     // const appealCardData = appeals.map(e => {

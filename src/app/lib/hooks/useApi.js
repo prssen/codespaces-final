@@ -6,7 +6,7 @@ import { removeEmpties } from "@/lib/utils/utils";
 // import { Context } from "../services/context/ContextProvider";
 import { Context } from "@/lib/context/ContextProvider";
 import { LensTwoTone } from "@mui/icons-material";
-// axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = true;
 
 // import { axiosInstance as axios } from "@/lib/api/axiosInstance";
 // import { default as axios } from "@/lib/api/axiosInstance";
@@ -35,7 +35,8 @@ const get = async (url, params) => {
             headers: {
                 "Content-Type": "application/json",
             },
-            params: params
+            params: params,
+            onDownloadProgress: (e) => {}
         });
         console.log('The axios GET response is: ', response);
         return response.data;
@@ -567,7 +568,7 @@ export const useCreateExpense = ({ callback, onClose }) => {
 /*
 queryParams: an object containing URL query parameters as key-value pairs
 */
-export const useGetAppeals = (uuid, queryParams) => {
+export const useGetAppeals = (uuid, queryParams, options={}) => {
     // Remove any params which are empty strings/undefined
     const filtered = removeEmpties(queryParams);
     let url = 'appeals/';
@@ -579,6 +580,7 @@ export const useGetAppeals = (uuid, queryParams) => {
     return useQuery(["appeals"], () => { console.log('Query function executing'); return get(url, filtered) }, {
         onSuccess: (data) => console.log("Charity appeal data: ", data),
         onError: (error) => console.error(error),
+        ...options
         // cacheTime: 300000,
     });
 }
