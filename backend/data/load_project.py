@@ -33,7 +33,7 @@ def load_project_appeals(data_path):
                 story=row[6],
                 is_live=True,
             )
-            project_appeals[row[0]] = ProjectAppeal.objects.get(uuid=row[0])
+            # project_appeals[row[0]] = ProjectAppeal.objects.get(uuid=row[0])
 
             # Populate ProjectGallery models using created ProjectAppeals
             for index, photo_url in enumerate(row[8].split(', ')):

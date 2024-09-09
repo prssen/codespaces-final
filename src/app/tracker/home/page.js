@@ -290,7 +290,7 @@ const CharityHomePage = (props) => {
                     <CircularProgress /> :
                 (
                     <Grid container spacing={2}>
-                        {charities.map(({ id, ...charity }, index) => (
+                        {/* {charities.map(({ id, ...charity }, index) => (
                             <Grid item xs={3} key={index}>
                                 <AppealCard
                                     {...charity}
@@ -302,6 +302,14 @@ const CharityHomePage = (props) => {
                             <Grid item xs={3} key={index}>
                                 <AppealCard
                                     {...charity}
+                                    cardStyles={{ height: "100%" }}
+                                />
+                            </Grid>
+                        ))} */}
+                        {appealCardData && appealCardData.slice(4,10).map(({ id, ...appeal }, index) => (
+                            <Grid item xs={3} key={index}>
+                                <AppealCard
+                                    {...appeal}
                                     cardStyles={{ height: "100%" }}
                                 />
                             </Grid>

@@ -1,4 +1,5 @@
 import csv
+import sys
 from django.core.files.uploadedfile import SimpleUploadedFile
 from accounting import models
 from accounting.models import ProjectAppeal, ProjectGallery
@@ -22,17 +23,17 @@ def load_project_appeals(data_path):
         # Skip header row
         next(csv_reader)
         for row in csv_reader:
-            # # Populate ProjectAppeal models
-            # project_appeals[row[0]] = ProjectAppeal(
-            #     uuid=row[0],
-            #     project_id=row[1],
-            #     title=row[2],
-            #     subtitle=row[3],
-            #     date_started=row[4],
-            #     story=row[6],
-            #     is_live=True,
-            # )
-            project_appeals[row[0]] = ProjectAppeal.objects.get(uuid=row[0])
+            # Populate ProjectAppeal models
+            project_appeals[row[0]] = ProjectAppeal(
+                uuid=row[0],
+                project_id=row[1],
+                title=row[2],
+                subtitle=row[3],
+                date_started=row[4],
+                story=row[6],
+                is_live=True,
+            )
+            # project_appeals[row[0]] = ProjectAppeal.objects.get(uuid=row[0])
 
             # Populate ProjectGallery models using created ProjectAppeals
             for index, photo_url in enumerate(row[8].split(', ')):
@@ -56,19 +57,24 @@ def load_project_appeals(data_path):
                 ))
 
 
-    # # bulk save created objects - respect FK dependencies!!!
-    # ProjectAppeal.objects.bulk_create(list(project_appeals.values()))
+    # bulk save created objects - respect FK dependencies!!!
+    ProjectAppeal.objects.bulk_create(list(project_appeals.values()))
 
     # Replace the dummy appeal IDs with the actual object IDs, now they are created
     for gallery_key, gallery in project_galleries.items():
         appeal_uuid = gallery_key
         # appeal_uuid = project_galleries[img_key][0].project_id
         for index, photo in enumerate(gallery):
-            project_galleries[gallery_key][index].project_id = project_appeals[appeal_uuid].id
+            # project_galleries[gallery_key][index].project_id = project_appeals[appeal_uuid].id
+            project_galleries[gallery_key][index].project_id = ProjectAppeal.objects.get(uuid=appeal_uuid).id
 
     # Flatten list of list of photo galleries
+    print(project_galleries.values())
     flattened_gallery_list = list(chain.from_iterable(project_galleries.values()))
     ProjectGallery.objects.bulk_create(flattened_gallery_list)
 
     # return projecappeal and project gallery to chain
     # w/ other methods
+
+if __name__ == "__main__":
+    load_project_appeals(sys.argv[1])

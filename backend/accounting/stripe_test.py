@@ -1,5 +1,5 @@
 import stripe
-stripe.api_key = "sk_test_51OVH2cHiZwoknnwFONrXCMNwuWpWgSU9nesIGL1fRh8JaeK3Ur2pAhT3WFBQBynJBlYUQOpagKjRYeU7NrJTGHfg00p7arh7Fv"
+stripe.api_key = "sk_test_26PHem9AhJZvU623DfE1x4sd"
 
 starter_subscription = stripe.Product.create(
   name="Starter Subscription",

@@ -1,14 +1,15 @@
 import { useQuery, useMutation, useQueryClient, QueryClient } from "react-query";
 import { useEffect, useState, useContext } from "react";
 import Cookies from "js-cookie";
-// import axios from "axios";
+import axios from "axios";
 import { removeEmpties } from "@/lib/utils/utils";
 // import { Context } from "../services/context/ContextProvider";
 import { Context } from "@/lib/context/ContextProvider";
 import { LensTwoTone } from "@mui/icons-material";
 // axios.defaults.withCredentials = true;
 
-import { axiosInstance as axios } from "@/lib/api/axiosInstance";
+// import { axiosInstance as axios } from "@/lib/api/axiosInstance";
+// import { default as axios } from "@/lib/api/axiosInstance";
 
 const setCookie = (tokenValue) => {
     Cookies.set('token', tokenValue, { 
@@ -18,12 +19,15 @@ const setCookie = (tokenValue) => {
     })
 };
 
+// console.log('Axios called in useApi is: ', axios);
+
 // console.log('Axios instance is: ', axios);
 
 // TODO: move these to api.js folder
 // TODO: create separate method to get base url/initialise axios
 const get = async (url, params) => {
-    console.log('Get function called with the following params: ',  params);
+    console.log('Get function called with the following params: ',  url, params);
+    console.log('axios called in useApi is: ', axios(url, { baseURL: "http://localhost:8000/api/v1/" }));
     try {
         const response = await axios(url, {
             baseURL: "http://localhost:8000/api/v1/",
@@ -33,7 +37,7 @@ const get = async (url, params) => {
             },
             params: params
         });
-        // console.log('The axios GET response is: ', response);
+        console.log('The axios GET response is: ', response);
         return response.data;
     } catch (error) {
         console.error(error);
@@ -570,8 +574,9 @@ export const useGetAppeals = (uuid, queryParams) => {
     if (uuid) {
         url += uuid;
     }
+    console.log('useGetAppeals called with: ', uuid, queryParams, 'as inputs');
     // return useQuery(["appeals"], () => get(`appeals/${uuid}`, filtered), {
-    return useQuery(["appeals"], () => get(url, filtered), {
+    return useQuery(["appeals"], () => { console.log('Query function executing'); return get(url, filtered) }, {
         onSuccess: (data) => console.log("Charity appeal data: ", data),
         onError: (error) => console.error(error),
         // cacheTime: 300000,
