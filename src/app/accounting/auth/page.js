@@ -53,7 +53,7 @@ const LoginPage = () => {
         // else, redirect to accounting/projects/
         else {
             // navigate('/accounting/projects')
-            router.push('/accounting/projects')
+            router.push('/accounting/projects/1')
         }
     }
 
