@@ -187,7 +187,8 @@ export const OnboardingDialog = ({
         //     }
         // }
         let updatedSteps = stepCompleted;
-        if (!isErrors()) {
+        // if (!isErrors()) {
+        if (isEmpty(errors)) {
             updatedSteps = { ...stepCompleted, [activeStep]: true };
             // setStepCompleted({ ...stepCompleted, [activeStep]: true });
             setStepCompleted(updatedSteps);

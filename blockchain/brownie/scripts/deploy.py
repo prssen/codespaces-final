@@ -9,7 +9,7 @@ import django
 import uuid
 
 sys.path.append(
-    '/Users/senaypetros/Documents/UoL/Final Project/Deliverables/Final_Code/backend')
+    '/home/ubuntu/codespaces-final/backend')
 print('Testing: python path is: ', os.environ.get('PYTHONPATH'))
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "backend.settings")
 django.setup()
@@ -81,7 +81,7 @@ def deploy_contracts():
     # TODO: temporary - delete this
     # address_path = os.path.join(
     #     os.path.dirname(__file__), 'contract_addresses.txt')
-    address_path = "/Users/senaypetros/Documents/UoL/Final Project/Deliverables/Final_Code/backend/accounting/blockchain_service/contract_addresses.txt"
+    address_path = "/home/ubuntu/codespaces-final/backend/accounting/blockchain_service/contract_addresses.txt"
     print("project info: ", projects)
     with open(address_path, "w") as f:
         # f.write(f"PROJECT: {projects}\n")

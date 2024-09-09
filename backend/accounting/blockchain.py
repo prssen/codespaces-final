@@ -33,9 +33,9 @@ class BrownieBlockchainProvider:
     contracts = None
     accounts = None
     # address_path = "/Users/senaypetros/Documents/UoL/Final Project/Deliverables/Final_Code/backend/accounting/blockchain_service/contract_addresses.txt"
-    address_path = "./blockchain_service/contract_addresses.txt"
+    address_path = "/home/ubuntu/codespaces-final/backend/accounting/blockchain_service/contract_addresses.txt"
     # charity_address_path = "/Users/senaypetros/Documents/UoL/Final Project/Deliverables/Final_Code/backend/accounting/blockchain_service/charity_addresses.txt"
-    charity_address_path = "./blockchain_service/charity_addresses.txt"
+    charity_address_path = "/home/ubuntu/codespaces-final/backend/accounting/blockchain_service/charity_addresses.txt"
     # Tracks the block up to which we have received events (reword)
     block_counter = 0
 
@@ -46,15 +46,15 @@ class BrownieBlockchainProvider:
         project_path = '/home/ubuntu/codespaces-final/blockchain/brownie'
         self.contracts = brownie.project.load(
             project_path, raise_if_loaded=False)
-        self.load_accounts('/home/ubuntu/codespaces-final/blockchain/quorum-test-network/config/besu/QBFTgenesis.json')
+        # self.load_accounts('/home/ubuntu/codespaces-final/blockchain/quorum-test-network/config/besu/QBFTgenesis.json')
         # self.contracts = brownie.project.load(
         #     '/Users/senaypetros/Documents/UoL/Final Project/Deliverables/Final_Code/final-blockchain/Ethereum/brownie')
         self.contracts.load_config()
 
         # Instead of spinning up new network each time this runs,
         # # Connect to running network
-        if network.show_active() != 'besulocal':
-            network.connect('besulocal')
+        if network.show_active() != 'development':
+            network.connect('development')
 
         # Start IPFS client
         self.ipfs_client = Client('127.0.0.1', 5001)
@@ -82,35 +82,37 @@ class BrownieBlockchainProvider:
         return result
 
 
-    def load_accounts(self, genesis_file_path):
-        """Load starter accounts from genesis file of Besu blockchain"""
+    # def load_accounts(self, genesis_file_path):
+    #     """Load starter accounts from genesis file of Besu blockchain"""
 
-        with open(genesis_file_path) as f:
-            file = json.load(f)
-            chain_accounts = file['alloc']
-            account_addresses = []
-            for account in chain_accounts:
-                if 'privateKey' in chain_accounts[account]:
-                    # acc = brownie.accounts.add(chain_accounts[account]["privateKey"])
+    #     with open(genesis_file_path) as f:
+    #         file = json.load(f)
+    #         chain_accounts = file['alloc']
+    #         account_addresses = []
+    #         for account in chain_accounts:
+    #             if 'privateKey' in chain_accounts[account]:
+    #                 # acc = brownie.accounts.add(chain_accounts[account]["privateKey"])
                     
-                    # account_addresses.append(acc.address)
-                    account_addresses.append(chain_accounts[account]['privateKey'])
+    #                 # account_addresses.append(acc.address)
+    #                 account_addresses.append(chain_accounts[account]['privateKey'])
                     
-                    # print('Found account: ', account)
-                self.accounts = account_addresses
-            print('Available accounts: ', account_addresses)
-            # print(brownie.accounts[0], brownie.accounts[1], brownie.accounts[2])
+    #                 # print('Found account: ', account)
+    #             self.accounts = account_addresses
+    #         print('Available accounts: ', account_addresses)
+    #         # print(brownie.accounts[0], brownie.accounts[1], brownie.accounts[2])
 
 
     def create_account(self, keystore_path=None):
         """Create a new account on the blockchain and store its public and private keys securely."""
 
         new_account = brownie.accounts.add()
-        print('Available brownie accounts: ')
-        print([acc for acc in brownie.accounts])
+        gas_price = network.gas_price()
+        # print('Available brownie accounts: ')
+        # print([acc for acc in brownie.accounts])
         # Add some Ether from the pre-populated Besu accounts to enable transactions
         # brownie.accounts[random.randint(0, 9)].transfer(new_account, "10 ether")
-        brownie.accounts.at(secrets.choice(self.accounts)).transfer(new_account, "10 ether")
+        brownie.accounts[secrets.choice([0, 9])].transfer(new_account, "10 ether", gas_price=gas_price)
+        # brownie.accounts.add(secrets.choice(self.accounts)).transfer(new_account, "10 ether")
         if keystore_path:
             new_account.save(keystore_path)
         return new_account.address

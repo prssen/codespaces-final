@@ -1,6 +1,0 @@
-live:
-  networks:
-    besu-network:
-      chainid: 1337
-      id: besulocal
-      host: http://localhost:8545
