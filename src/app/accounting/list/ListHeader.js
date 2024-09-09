@@ -1,9 +1,10 @@
 import { Box, Typography, Button } from '@mui/material';
 import BasicBreadcrumbs from '@/components/Breadcrumb';
 import { BiPlus } from 'react-icons/bi';
+import { NextLink } from '@/components/NextLink';
 
 
-const ListHeader = ({ title, breadcrumbs, buttonText }) => {
+const ListHeader = ({ title, breadcrumbs, buttonText, buttonLink }) => {
     return (
         <Box sx={{
             // backgroundColor: blue[100]
@@ -30,6 +31,7 @@ const ListHeader = ({ title, breadcrumbs, buttonText }) => {
             >
                 <Typography variant="h5" sx={{fontWeight: 'bold', marginTop: 2}}>{title}</Typography>
                 <Button
+                    LinkComponent={buttonLink && NextLink}
                     sx={{
                         // background: 'rgb(76,0,222)',
                         // background: 'linear-gradient(90deg, rgba(76,0,222,1) 0%, rgba(147,66,245,1) 100%)',
@@ -48,6 +50,7 @@ const ListHeader = ({ title, breadcrumbs, buttonText }) => {
                         // borderColor: '#424bf5'
                         borderColor: 'transparent',
                     }}
+                    href={buttonLink}
                 >{buttonText}{" "}<BiPlus />
                 </Button>
             </Box>

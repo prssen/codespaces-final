@@ -17,8 +17,10 @@ import { useState } from "react";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 // import ExpenseLineItems from "./expenseLineItems";
-import BasicBreadcrumbs from "../../../components/BasicBreadcrumbs";
-import TableInputs from "../../../components/tableInputs";
+// import BasicBreadcrumbs from "../../../components/BasicBreadcrumbs";
+import BasicBreadcrumbs from "@/components/BasicBreadcrumbs";
+// import TableInputs from "../../../components/tableInputs";
+import TableInputs from "@/components/tableInputs";
 import { TextField } from "@mui/material";
 const defaultTheme = createTheme();
 

@@ -128,7 +128,7 @@ class BaseViewSet(viewsets.ModelViewSet):
     def is_correct_tenant(self, obj):
         current_charity = self.get_current_charity()
         return obj.parent_charity == current_charity.charity.uuid
-    
+
 
     # Gets users' currently selected tenant ID, returns model objects
     # belonging to that tenant
@@ -1521,8 +1521,8 @@ def stripe_checkout(request):
             # cancel_url='http://localhost:8000/api/v1/stripe/cancel/'
             
             
-            success_url='http://localhost:3000/tracker/donations/list?status=success',
-            cancel_url=f'http://localhost:3000/tracker/appeal/{request.data["appeal_id"]}?status=cancelled'
+            success_url='http://localhost:3001/tracker/donations/list?status=success',
+            cancel_url=f'http://localhost:3001/tracker/appeal/{request.data["appeal_id"]}?status=cancelled'
             # cancel_url='http://localhost:8001/'
             # success_url='http://localhost:8000/api/v1/stripe/success.html',
             # cancel_url='http://localhost:8000/api/v1/stripe/cancel.html',

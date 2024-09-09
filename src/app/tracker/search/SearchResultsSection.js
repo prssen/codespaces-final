@@ -91,7 +91,7 @@ const SearchResultsSection = () => {
 
     return (
         <>
-            <Grid item xs={7}>
+            <Grid item xs={9}>
                 <Box
                     sx={{
                         display: "flex",
@@ -125,7 +125,7 @@ const SearchResultsSection = () => {
             <Grid item xs={6} mt={3}>
                 <Typography variant="subtitle1">Back to Top</Typography>
             </Grid>
-            <Grid item xs={7}>
+            <Grid item xs={9}>
                 <ListView data={formatted} />
             </Grid>
         </>

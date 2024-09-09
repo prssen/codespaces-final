@@ -68,7 +68,8 @@ const ListExpenses = () => {
         title: 'Expenses',
         // TODO: move this to layout page
         breadcrumbs: ['Home', 'Expenses'],
-        buttonText: 'New expense'
+        buttonText: 'New expense',
+        buttonLink: '/accounting/expenses/create'
     };
 
     console.log('Transformed expenses: ', expenses);

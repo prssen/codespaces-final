@@ -45,7 +45,7 @@ const CheckboxFilters = ({ options, onChange, state, orientation } ) => {
                             />
                         }
                         label={option.text}
-                        key={index}
+                        key={i}
                     />   
                 ))}
             </Box>
