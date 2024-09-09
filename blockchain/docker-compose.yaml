@@ -1,0 +1,152 @@
+# Credit: https://www.baeldung.com/ops/kafka-docker-setup
+version: '2'
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.4.4
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - 22181:2181
+  
+  kafka:
+    image: confluentinc/cp-kafka:7.4.4
+    depends_on:
+      - zookeeper
+    ports:
+      - 29092:29092
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+  # TODO: dockerise the django app
+  backend:
+    # build: ./backend
+    build:
+      context: ./backend
+      # target: builder
+
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      # - db
+      - redis
+      - besu
+      - kafka
+    env_file:
+      - ./.env.dev
+
+  db:
+    image: postres:13
+    environment:
+      POSTGRES_USER: example
+      POSTGRES_DB: exampledb
+
+  redis:
+    image: redis:6.0.9
+  
+  besu:
+    # TODO
+    include: ./blockchain/quorum-test-network/docker-compose.yaml
+
+  nextjs:
+    build:
+      context: ./frontend
+    ports:
+      -"3000:3000"
+
+    
+
+# # Kafka config adapted from https://www.baeldung.com/ops/kafka-docker-setup
+# version: '2'
+# services:
+#   zookeeper:
+#     image: confluentinc/cp-zookeeper:7.4.4
+#     container_name: zookeeper
+#     environment:
+#       ZOOKEEPER_CLIENT_PORT: 2181
+#       ZOOKEEPER_TICK_TIME: 2000
+#     ports:
+#       - "2181:2181"
+  
+#   kafka:
+#     image: confluentinc/cp-kafka:7.4.4
+#     depends_on:
+#       - zookeeper
+#     ports:
+#       - "9092:9092"
+#       - "29092:29092"
+#     volumes:
+#       - kafka-data:/var/lib/kafka/data
+#     environment:
+#       KAFKA_BROKER_ID: 1
+#       KAFKA_ZOOKEE~PER_CONNECT: zookeeper:2181
+#       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+#       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+#       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+#       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+#   # # TODO: dockerise the django app
+#   # backend:
+#   #   # build: ./backend
+#   #   build:
+#   #     context: backend
+#   #     # target: builder
+
+#   #   command: python manage.py runserver 0.0.0.0:8000
+#   #   volumes:
+#   #     - ./app/:/usr/---src/app/
+#   #   ports:
+#   #     - 8000:8000
+#   #   depends_on:
+#   #     - db
+#   #     - redis
+#   #     - besu
+#   #     - kafka
+#   #   env_file:
+#   #     - ./.env.dev
+
+#   # db:
+#   #   image: postres:13
+#   #   environment:
+#   #     POSTGRES_USER: example
+#   #     POSTGRES_DB: exampledb
+
+#   redis:
+#     container_name: redis_db
+#     image: redis:7.4.0-alpine
+#     ports:
+#     - 6379:6379
+#     # restart: unless_stopped
+#     # Store data in host filesystem, to persist between container restarts
+#     volumes: 
+#     - redis_data:/redis_data
+    
+# volumes:
+#   redis_data:
+#     driver: local
+#   kafka-data:
+#     driver: local
+
+
+
+#   # besu:
+#   #   # TODO
+#   #   include: ./blockchain/quorum-test-network/docker-compose.yaml
+
+#   # nextjs:
+#   #   build:
+#   #     context: ./frontend
+#   #   ports:
+#   #     -"3000:3000"
+
+    
+
+  
